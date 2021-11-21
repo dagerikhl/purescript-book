@@ -17,3 +17,16 @@
 - `$ spago install X`: Installs a dependency.
 - `$ spago repl`: Enters Spago interactive REPL.
 - `$ spago bundle-app`: Compiles the app to JS ready for the browser.
+
+### Aliases
+
+Set up aliases for commonly used commands.
+
+You can also source the `aliases.sh` file for this: `$ ./aliases.sh`.
+
+```bash
+alias sb="spago build"
+alias st="spago test"
+alias si="spago install"
+alias sr="spago repl"
+```
