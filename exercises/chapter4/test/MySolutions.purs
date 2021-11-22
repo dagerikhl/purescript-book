@@ -12,19 +12,37 @@ import Test.Examples
 -- Note to reader: Add your solutions to this file
 
 -- Exercise 1.1
+abs :: Int -> Int
+abs x = if x > 0 then x else -x
+
 isEven :: Int -> Boolean
 --isEven x = (mod x 2) == 0
 --isEven x = mod x 2 == 0
 --isEven x = (x `mod` 2) == 0
-isEven x = x `mod` 2 == 0
+-- isEven x = x `mod` 2 == 0
+-- isEven x = x % 2 == 0
+isEven x =
+  if absX == 0 then
+    true
+  else
+    not $ isEven $ absX - 1
+  where
+    absX = abs x
 
 -- Exercise 1.2
+oneIfEven :: Maybe Int -> Int
+oneIfEven x =
+  if isEven $ fromMaybe 0 x then
+    1
+  else
+    0
+
 countEven :: Array Int -> Int
 countEven arr =
   if null arr then
     0
   else
-    (if isEven (fromMaybe 0 (head arr)) then 1 else 0) + (countEven $ fromMaybe [] $ tail arr)
+    (oneIfEven $ head arr) + (countEven $ fromMaybe [] $ tail arr)
 
 -- Exercise 2.1
 squared :: Array Number -> Array Number
@@ -40,6 +58,7 @@ keepNonNegative = filter (_ >= 0.0)
 infix 4 filter as <$?>
 
 keepNonNegativeRewrite :: Array Number -> Array Number
+-- keepNonNegativeRewrite arr = (\x -> x >= 0.0) <$?> arr
 keepNonNegativeRewrite arr = (_ >= 0.0) <$?> arr
 
 -- Exercise 3.1
