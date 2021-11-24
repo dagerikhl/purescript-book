@@ -13,6 +13,8 @@ import Test.Unit (TestSuite, suite, test)
 import Test.Unit.Assert as Assert
 import Test.Unit.Main (runTest)
 
+import Data.Picture (shapeBounds)
+
 john :: Person
 john = { name: "John Smith", address: { street: "123 Test Lane", city: "Los Angeles" } }
 
@@ -78,7 +80,6 @@ main =
           $ fromSingleton "default" ["B"]
         Assert.equal "default"
           $ fromSingleton "default" ["B", "C", "D"]
-    {-  Move this block comment starting point to enable more tests
     suite "Exercise Group - Algebraic Data Types" do
       test "Exercise - circleAtOrigin" do
         Assert.equal origin
@@ -130,7 +131,6 @@ main =
         Assert.equal { top: 3.0, left: 3.0, right: 7.0, bottom: 7.0 }
           $ shapeBounds (Clipped samplePicture { x: 5.0, y: 5.0 } 4.0 4.0)
 
--}
 runChapterExamples :: TestSuite
 runChapterExamples =
   suite "Chapter Examples" do
